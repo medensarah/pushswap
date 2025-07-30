@@ -6,17 +6,15 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 05:06:35 by smedenec          #+#    #+#             */
-/*   Updated: 2025/06/16 19:53:11 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/30 13:06:56 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <string.h>
 # include <stddef.h>
 # include <stdarg.h>
 

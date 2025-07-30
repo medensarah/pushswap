@@ -1,4 +1,3 @@
-
 GREEN = \033[0;38;2;142;194;121;49m
 LIGHTGREEN = \033[0;38;2;142;255;105;49m
 YELLOW = \033[0;93m
@@ -13,7 +12,7 @@ PRINTF_OBJS = $(PRINTF_SRCS:.c=.o)
 
 NAME = pushswap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 SRCS = push.c
 OBJS = $(SRCS:.c=.o)
 
