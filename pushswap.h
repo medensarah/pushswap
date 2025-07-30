@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/30 15:12:21 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:02:14 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,15 @@
 # include <stdlib.h>
 # include <limits.h>
 
-int	parsing(int argc, char **argv);
-void	answer(int i);
-int	check_stack(int argc, char **argv);
+#define GREEN	"\033[0;38;2;142;194;121m"
+#define LIGREEN	"\033[0;38;2;142;255;105m"
+#define RED		"\033[0m"
+#define LIRED	"\033[0;38;2;207;29;67;49m"
+#define NONE	"\033[0m"
+
+
+int		parsing(int argc, char **argv);
+void	error(int i);
+int		check_numeric(char **argv);
 
 #endif
