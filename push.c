@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/30 17:50:55 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:38:56 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,21 @@ int	check_numeric(char **argv)
 		}
 		i++;
 	}
-	printf("\033[0;38;2;142;194;121;49mCheck_numeric passed\033[0m\n");
+	printf(GREEN"Check_numeric passed\n"NONE);
 	return (0);
 }
 
 void	error(int err)
 {
 	if (err == 1)
-		printf("Error : No numbers entered\n");
+		printf(RED"Error : No numbers entered\n"NONE);
 	else if (err == 2)
-		printf("Error : Accepted numbers must be between 5 and 100\n");
+		printf(RED"Error : Accepted numbers must be between 5 and 100\n"NONE);
 	else if (err == 3)
-		printf("Error : Only numbers are allowed in argument\n");
+		printf(RED"Error : Only numbers are allowed in argument\n"NONE);
 	else if (err == 4)
-		printf("Error : Allowed number range is between '%d' and '%d'\n",
-			INT_MIN, INT_MAX);
+		printf(RED"Error : Allowed number range is between '%d' and '%d'\n"
+			NONE, INT_MIN, INT_MAX);
 	else
 		printf("Error: ?\n");
 }
@@ -77,10 +77,11 @@ int	main(int argc, char **argv)
 {
 	if (!parsing(argc, argv))
 	{
-		printf("\033[0;38;2;142;255;105;49mParsing passed\033[0m\n");
-		printf("\033[0;38;2;142;255;105;49mThe stack is sorted in ascending order\033[0m\n");
+		printf(LIGREEN"Parsing passed\n"NONE);
+		printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
 		return (0);
 	}
-	printf("Parsing failed\n");
+	printf(RED"Parsing failed\n"NONE);
+	printf(LIRED"The stack isnt sorted in ascending order\n"NONE);
 	return (1);
 }
