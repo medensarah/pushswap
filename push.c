@@ -6,14 +6,10 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/30 18:38:56 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/30 21:04:44 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//A penser :"The stack is already sorted."
-// remoove the -g3 in CFLAGS
-// remoove stdio.h et remplacer tous les printf
-// add at the end "The stack is sorted in ascending order\n"
 #include "ft_printf.h"
 #include "pushswap.h"
 
@@ -23,16 +19,41 @@ int	parsing(int argc, char **argv)
 		return (error(1), 1);
 	if (argc < 6 || argc > 101)
 		return (error(2), 1);
-	if (check_numeric(argv))
+	if (check_numeric_list(argv))
 		return (error(3), 1);
+	if (check_range_list(argc, argv))
+		return (error(4), 1);
 	else
 		return (0);
 }
+int check_range_list(int argc, char **argv)
+{
+	int		len;
+	int		i;
+	char 	*stack_a;
+	int		nbr;
 
-int	check_numeric(char **argv)
+	i = 0;
+	argc--;
+	stack_a = malloc(sizeof(int) * (argc + 1));
+	if(!stack_a)
+		return (1);
+	while (argv[i])
+	{
+		if (ft_atoi_max(argv[i], &nbr))
+			return (1);
+		stack_a[i] = nbr;
+		i++;
+	}
+	printf(GREEN"check_range_list passed\n"NONE);
+	return (0);
+
+}
+int	check_numeric_list(char **argv)
 {
 	int	i;
 	int	y;
+	char test;
 
 	printf("Checking %s...\n", argv[0]);
 	i = 1;
@@ -42,6 +63,7 @@ int	check_numeric(char **argv)
 		y = 0;
 		while (argv[i][y])
 		{
+			test = argv[i][y];
 			while (argv[i][y] == ' ' ||
 				(argv[i][y] >= '\t' && argv[i][y] <= '\r'))
 				y++;
@@ -54,7 +76,7 @@ int	check_numeric(char **argv)
 		}
 		i++;
 	}
-	printf(GREEN"Check_numeric passed\n"NONE);
+	printf(GREEN"check_numeric_list passed\n"NONE);
 	return (0);
 }
 
@@ -70,7 +92,7 @@ void	error(int err)
 		printf(RED"Error : Allowed number range is between '%d' and '%d'\n"
 			NONE, INT_MIN, INT_MAX);
 	else
-		printf("Error: ?\n");
+		printf(RED"Error: ?\n"NONE);
 }
 
 int	main(int argc, char **argv)
@@ -78,10 +100,10 @@ int	main(int argc, char **argv)
 	if (!parsing(argc, argv))
 	{
 		printf(LIGREEN"Parsing passed\n"NONE);
-		printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
+		//printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
 		return (0);
 	}
 	printf(RED"Parsing failed\n"NONE);
-	printf(LIRED"The stack isnt sorted in ascending order\n"NONE);
+	//printf(LIRED"The stack isnt sorted in ascending order\n"NONE);
 	return (1);
 }
