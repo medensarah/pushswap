@@ -6,25 +6,28 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 19:17:34 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/31 21:01:40 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf/ft_printf.h"
 #include "pushswap.h"
 
-int	*init_parsing(int argc, char **argv, int *stack_a)
+int	*init_parsing(int argc, char **argv)
 {
+	int	*list;
+
+	list = NULL;
 	if (!argv || argc <= 1)
 		return (error(1), NULL);
 	if (argc < 6 || argc > 101)
 		return (error(2), NULL);
-	if (check_list(argv))
+	if (!check_list(argv))
 		return (error(3), NULL);
-	stack_a = build_list(argc, argv, stack_a);
-	if (!stack_a)
+	list = build_list(argc, argv, list);
+	if (!list)
 		return (error(4), NULL);
-	return (stack_a);
+	return ((int *)list);
 }
 
 int	*build_list(int argc, char **argv, int *stack_a)
@@ -33,26 +36,26 @@ int	*build_list(int argc, char **argv, int *stack_a)
 	//int		*stack_a;
 	int		nbr;
 
-	i = 1;
+	i = 0;
 	argc--;
 	stack_a = malloc(sizeof (int) * (argc + 1));
 	if (!stack_a)
-		return (0);
-	while (argv[i])
+		return (NULL);
+	while (argv[i + 1])
 	{
-		if (atoi_range(argv[i], &nbr))
+		if (atoi_range(argv[i + 1], &nbr))
 		{
 			free(stack_a);
 			stack_a = NULL;
-			return (0);
+			return (NULL);
 		}
 		stack_a[i] = nbr;
-		printf("Stack_A[%d] = %d\n", i, stack_a[i]);
+		printf("Stack_a[%d] = %d\n", i, stack_a[i]);
 		i++;
 	}
 	stack_a[i] = '\0';
 	printf(GREEN"build_list passed\n"NONE);
-	return (stack_a);
+	return ((int *)stack_a);
 }
 
 int	check_list(char **argv)
@@ -63,8 +66,8 @@ int	check_list(char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		if (check_number(argv[i]))
-			return (error(3), 0);
+		if (!check_number(argv[i]))
+			return (0);
 		i++;
 	}
 	printf(GREEN"check_list passed\n"NONE);
@@ -83,7 +86,7 @@ void	error(int err)
 		printf(RED"Error : Allowed number range is between '%d' and '%d'\n"
 			NONE, INT_MIN, INT_MAX);
 	else if (err == 5)
-		printf(RED"Error : '\n");
+		printf(LIRED"Error : Parsing and build failed'\n");
 	else
 		printf(RED"Error: ?\n"NONE);
 }
