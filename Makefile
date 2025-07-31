@@ -7,13 +7,14 @@ PURPLE = \033[0;38;2;194;170;242;49m
 NONE = \033[0m
 
 LIBFTPRINTF = libftprintf.a
-PRINTF_SRCS = ft_printf.c functions.c modify.c
+PRINTF_SRCS = ft_printf/ft_printf.c ft_printf/functions.c \
+			ft_printf/modify.c
 PRINTF_OBJS = $(PRINTF_SRCS:.c=.o)
 
 NAME = pushswap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
-SRCS = parsing.c parsing_utils.c
+SRCS = src/main.c src/parsing.c src/parsing_utils.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFTPRINTF) $(NAME)

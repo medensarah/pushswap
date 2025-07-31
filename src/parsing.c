@@ -6,11 +6,11 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 16:00:08 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:46:54 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf/ft_printf.h"
 #include "pushswap.h"
 
 int	init(int argc, char **argv)
@@ -40,11 +40,17 @@ int build_list(int argc, char **argv)
 	while (argv[i])
 	{
 		if (atoi_range(argv[i], &nbr))
+		{
+			free(stack_a);
+			stack_a = NULL;
 			return (1);
+		}
 		stack_a[i] = nbr;
+		printf("Stack_A[%d] = %d\n", i, nbr);
 		i++;
 	}
-	printf(GREEN"check_range_list passed\n"NONE);
+	stack_a[i] = '\0';
+	printf(GREEN"build_list passed\n"NONE);
 	return (0);
 
 }
@@ -75,7 +81,7 @@ int	check_list(char **argv)
 		}
 		i++;
 	}
-	printf(GREEN"build_list passed\n"NONE);
+	printf(GREEN"check_list passed\n"NONE);
 	return (0);
 }
 
