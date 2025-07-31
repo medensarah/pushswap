@@ -15,5 +15,6 @@ A LA FIN PAS OUBLIER
 // remove the -g3 in CFLAGS
 // remove stdio.h et remplacer tous les printf
 // attention : remove limit list (5-100)
+// REMOVE le print de la list
 // REMOVE "The stack is sorted in ascending order\n"
 // REMOVE "The stack is sorted in ascending order\n"

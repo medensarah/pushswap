@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 16:46:54 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/31 17:44:54 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,17 @@ int	init(int argc, char **argv)
 	else
 		return (0);
 }
-int build_list(int argc, char **argv)
+
+int	build_list(int argc, char **argv)
 {
 	int		i;
-	char 	*stack_a;
+	int		*stack_a;
 	int		nbr;
 
-	i = 0;
+	i = 1;
 	argc--;
-	stack_a = malloc(sizeof(int) * (argc + 1));
-	if(!stack_a)
+	stack_a = malloc(sizeof (int) * (argc + 1));
+	if (!stack_a)
 		return (1);
 	while (argv[i])
 	{
@@ -46,39 +47,24 @@ int build_list(int argc, char **argv)
 			return (1);
 		}
 		stack_a[i] = nbr;
-		printf("Stack_A[%d] = %d\n", i, nbr);
+		printf("Stack_A[%d] = %d\n", i - 1, stack_a[i]);
 		i++;
 	}
 	stack_a[i] = '\0';
 	printf(GREEN"build_list passed\n"NONE);
 	return (0);
-
 }
+
 int	check_list(char **argv)
 {
 	int	i;
-	int	y;
-	char test;
 
 	printf("Checking %s...\n", argv[0]);
 	i = 1;
-	y = 0;
 	while (argv[i])
 	{
-		y = 0;
-		while (argv[i][y])
-		{
-			test = argv[i][y];
-			while (argv[i][y] == ' ' ||
-				(argv[i][y] >= '\t' && argv[i][y] <= '\r') || argv[i][y] == '-' || argv[i][y] == '+' )
-				y++;
-			if (argv[i][y] == '\0')
-				break ;
-			if (argv[i][y] >= '0' && argv[i][y] <= '9')
-				y++;
-			else
-				return (1);
-		}
+		if (check_number(argv[i]))
+			return (1);
 		i++;
 	}
 	printf(GREEN"check_list passed\n"NONE);
