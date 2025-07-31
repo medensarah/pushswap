@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 15:18:46 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:00:08 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "pushswap.h"
 
-int	parsing(int argc, char **argv)
+int	init(int argc, char **argv)
 {
 	if (!argv || argc <= 1)
 		return (error(1), 1);
 	if (argc < 6 || argc > 101)
 		return (error(2), 1);
-	if (check_numeric_list(argv))
+	if (check_list(argv))
 		return (error(3), 1);
-	if (check_range_list(argc, argv))
+	if (build_list(argc, argv))
 		return (error(4), 1);
 	else
 		return (0);
 }
-int check_range_list(int argc, char **argv)
+int build_list(int argc, char **argv)
 {
 	int		i;
 	char 	*stack_a;
@@ -39,7 +39,7 @@ int check_range_list(int argc, char **argv)
 		return (1);
 	while (argv[i])
 	{
-		if (ft_atoi_range(argv[i], &nbr))
+		if (atoi_range(argv[i], &nbr))
 			return (1);
 		stack_a[i] = nbr;
 		i++;
@@ -48,7 +48,7 @@ int check_range_list(int argc, char **argv)
 	return (0);
 
 }
-int	check_numeric_list(char **argv)
+int	check_list(char **argv)
 {
 	int	i;
 	int	y;
@@ -75,7 +75,7 @@ int	check_numeric_list(char **argv)
 		}
 		i++;
 	}
-	printf(GREEN"check_numeric_list passed\n"NONE);
+	printf(GREEN"build_list passed\n"NONE);
 	return (0);
 }
 
@@ -94,17 +94,4 @@ void	error(int err)
 		printf(RED"Error : '\n");
 	else
 		printf(RED"Error: ?\n"NONE);
-}
-
-int	main(int argc, char **argv)
-{
-	if (!parsing(argc, argv))
-	{
-		printf(LIGREEN"Parsing passed\n"NONE);
-		//printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
-		return (0);
-	}
-	printf(RED"Parsing failed\n"NONE);
-	//printf(LIRED"The stack isnt sorted in ascending order\n"NONE);
-	return (1);
 }

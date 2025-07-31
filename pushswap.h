@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 14:24:09 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:56:08 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@
 # define LIRED		"\033[0;38;2;247;14;21;49m"
 # define NONE		"\033[0m"
 
-int		parsing(int argc, char **argv);
+int		init(int argc, char **argv);
 void	error(int i);
-int		check_numeric_list(char **argv);
-int		check_range_list(int argc, char **argv);
-int		ft_atoi_range(const char *str, int *out);
+int		check_list(char **argv);
+int		build_list(int argc, char **argv);
+int		atoi_range(const char *str, int *out);
+int		check_number(const char *str);
 
 #endif
