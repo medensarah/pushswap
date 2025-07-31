@@ -6,25 +6,25 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 19:08:37 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/31 19:17:34 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf/ft_printf.h"
 #include "pushswap.h"
 
-int	init_parsing(int argc, char **argv, int *stack_a)
+int	*init_parsing(int argc, char **argv, int *stack_a)
 {
 	if (!argv || argc <= 1)
-		return (error(1), 0);
+		return (error(1), NULL);
 	if (argc < 6 || argc > 101)
-		return (error(2), 0);
+		return (error(2), NULL);
 	if (check_list(argv))
-		return (error(3), 0);
-	*stack_a = *build_list(argc, argv, stack_a);
+		return (error(3), NULL);
+	stack_a = build_list(argc, argv, stack_a);
 	if (!stack_a)
-		return (error(4), 0);
-	return (1);
+		return (error(4), NULL);
+	return (stack_a);
 }
 
 int	*build_list(int argc, char **argv, int *stack_a)

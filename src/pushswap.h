@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 19:07:22 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/31 19:16:40 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define LIRED		"\033[0;38;2;247;14;21;49m"
 # define NONE		"\033[0m"
 
-int		init_parsing(int argc, char **argv, int *stack_a);
+int		*init_parsing(int argc, char **argv, int *stack_a);
 void	error(int i);
 int		check_list(char **argv);
 int		*build_list(int argc, char **argv, int *stack_a);

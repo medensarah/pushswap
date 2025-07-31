@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 19:12:03 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/31 19:18:37 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	//argv[1] = "123-\t12\b--79819885353+";
 	int	*stack_a;
 	//int	*stack_b;
-	*stack_a = NULL;
+	stack_a = NULL;
 	stack_a = init_parsing(argc, argv, stack_a);
 	if (!stack_a)
 	{
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	printf(LIGREEN"Parsing and build passed\n"NONE);
-	printf("la chaine = %d\n"NONE, stack_a);
+	printf("la chaine = %d\n"NONE, stack_a[1]);
 	//printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
 	return (0);
 }
