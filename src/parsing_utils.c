@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 17:52:44 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/31 18:22:34 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,25 @@ int	check_number(const char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!(!allowed_space(str[i]) || (str[i] >= '0' && str[i] <= '9')
-				|| str[i] == '-' || str[i] == '+'))
-			return (1);
+		if (!(allowed_space(str[i])) && !(str[i] >= '0' && str[i] <= '9')
+			&& !(str[i] == '-') && !(str[i] == '+'))
+			return (0);
 		i++;
 	}
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] >= '0' && str[i] <= '9')
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	allowed_space(char c)
 {
 	if ((c == ' ' || c == '\b' || c == '\t' || c == '\n'
 			|| c == '\v' || c == '\f' || c == '\r'))
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
