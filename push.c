@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/30 21:04:44 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:18:46 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	parsing(int argc, char **argv)
 }
 int check_range_list(int argc, char **argv)
 {
-	int		len;
 	int		i;
 	char 	*stack_a;
 	int		nbr;
@@ -40,7 +39,7 @@ int check_range_list(int argc, char **argv)
 		return (1);
 	while (argv[i])
 	{
-		if (ft_atoi_max(argv[i], &nbr))
+		if (ft_atoi_range(argv[i], &nbr))
 			return (1);
 		stack_a[i] = nbr;
 		i++;
@@ -65,7 +64,7 @@ int	check_numeric_list(char **argv)
 		{
 			test = argv[i][y];
 			while (argv[i][y] == ' ' ||
-				(argv[i][y] >= '\t' && argv[i][y] <= '\r'))
+				(argv[i][y] >= '\t' && argv[i][y] <= '\r') || argv[i][y] == '-' || argv[i][y] == '+' )
 				y++;
 			if (argv[i][y] == '\0')
 				break ;
@@ -91,6 +90,8 @@ void	error(int err)
 	else if (err == 4)
 		printf(RED"Error : Allowed number range is between '%d' and '%d'\n"
 			NONE, INT_MIN, INT_MAX);
+	else if (err == 5)
+		printf(RED"Error : '\n");
 	else
 		printf(RED"Error: ?\n"NONE);
 }

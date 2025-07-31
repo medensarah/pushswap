@@ -13,7 +13,7 @@ PRINTF_OBJS = $(PRINTF_SRCS:.c=.o)
 NAME = pushswap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
-SRCS = push.c
+SRCS = push.c calcul.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFTPRINTF) $(NAME)

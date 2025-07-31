@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/30 20:54:52 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/07/31 14:24:09 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int		parsing(int argc, char **argv);
 void	error(int i);
 int		check_numeric_list(char **argv);
 int		check_range_list(int argc, char **argv);
-int		ft_atoi_max(const char *str, int *out);
+int		ft_atoi_range(const char *str, int *out);
 
 #endif
