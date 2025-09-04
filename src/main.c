@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 22:21:59 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/04 02:28:58 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,11 @@ int	main(int argc, char **argv)
 	stack_a = init_parsing(argc, argv);
 	if (!stack_a)
 		return (error(5), free_fail(&stack_a, NULL), 0);
-
 	stack_b = malloc(sizeof (int) * (argc + 1));
 	if (!stack_b)
 		return (free_fail(&stack_a, NULL), 0);
 	printf(LIGREEN"Parsing and build passed\n"NONE);
-	//while (stack_a[i])
-	printf("la chaine = %d\n"NONE, stack_a[0]);
-
-	printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
+	//printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
 	free_fail(&stack_a, &stack_b);
 	return (1);
 }

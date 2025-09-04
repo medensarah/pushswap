@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 18:22:34 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/04 02:55:45 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	atoi_range(const char *str, int *nbr)
 		i++;
 	}
 	if ((sign == 1 && result > INT_MAX) || (sign == -1 && - result < INT_MIN))
-		return (1);
+		return (0);
 	*nbr = (int)(sign * result);
-	return (0);
+	return (1);
 }
 
 int	check_number(const char *str)

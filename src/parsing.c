@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 21:01:40 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/04 02:53:40 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	*build_list(int argc, char **argv, int *stack_a)
 		return (NULL);
 	while (argv[i + 1])
 	{
-		if (atoi_range(argv[i + 1], &nbr))
+		if (!atoi_range(argv[i + 1], &nbr))
 		{
 			free(stack_a);
 			stack_a = NULL;
@@ -79,14 +79,14 @@ void	error(int err)
 	if (err == 1)
 		printf(RED"Error : No numbers entered\n"NONE);
 	else if (err == 2)
-		printf(RED"Error : Accepted numbers must be between 5 and 100\n"NONE);
+		printf(RED"Error : Accepted list of numbers must be between 5 and 100\n"NONE);
 	else if (err == 3)
 		printf(RED"Error : Only numbers are allowed in argument\n"NONE);
 	else if (err == 4)
 		printf(RED"Error : Allowed number range is between '%d' and '%d'\n"
 			NONE, INT_MIN, INT_MAX);
 	else if (err == 5)
-		printf(LIRED"Error : Parsing and build failed'\n");
+		printf(LIRED"Error : Parsing and build failed\n"NONE);
 	else
 		printf(RED"Error: ?\n"NONE);
 }
