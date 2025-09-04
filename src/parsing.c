@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/04 02:53:40 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/04 03:00:48 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	*init_parsing(int argc, char **argv)
 {
 	int	*list;
 
+	
 	list = NULL;
 	if (!argv || argc <= 1)
 		return (error(1), NULL);

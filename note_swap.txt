@@ -7,8 +7,6 @@ PARSING
 // Deal negative numbers
 // Deal the '-0' in input
 // add message pour deja triee "The stack is already sorted."
-// DEAL 'NULL' and '\0' in list because its stopping the parsing and
-   its creating wrong numbers
 
 A LA FIN PAS OUBLIER
 // remove the -g3 in CFLAGS
