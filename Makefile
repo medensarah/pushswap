@@ -14,7 +14,8 @@ PRINTF_OBJS = $(PRINTF_SRCS:.c=.o)
 NAME = pushswap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
-SRCS = src/main.c src/parsing.c src/parsing_utils.c
+SRCS = src/main.c src/parsing.c src/parsing_utils.c \
+		src/list.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFTPRINTF) $(NAME)

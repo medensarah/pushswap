@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/04 02:28:58 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/06 01:31:07 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	//int	i;
 	//i = 1;
 	//argv[1] = "123-\t12\b--79819885353+";
-	int	*stack_a;
+	t_list	*stack_a;
 	int	*stack_b;
 	//int	i;
 
@@ -26,14 +26,19 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	stack_a = init_parsing(argc, argv);
-	if (!stack_a)
-		return (error(5), free_fail(&stack_a, NULL), 0);
+	while (stack_a)
+	{
+		printf("nbr %d\n", stack_a->nbr);
+		stack_a = stack_a->next;
+	}
+//	if (!stack_a)
+//		return (error(5), free_fail(&stack_a, NULL), 0);
 	stack_b = malloc(sizeof (int) * (argc + 1));
-	if (!stack_b)
-		return (free_fail(&stack_a, NULL), 0);
+//	if (!stack_b)
+//		return (free_fail(&stack_a, NULL), 0);
 	printf(LIGREEN"Parsing and build passed\n"NONE);
 	//printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
-	free_fail(&stack_a, &stack_b);
+	//free_fail(&stack_a, &stack_b);
 	return (1);
 }
 
