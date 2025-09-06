@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/06 05:10:50 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/06 06:27:32 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,25 @@ int	atoi_range(const char *str, int *nbr)
 	return (1);
 }
 
-int	check_number(const char *str)
+int	check_number(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-	{
-		if (!(allowed_space(str[i])) && !(str[i] >= '0' && str[i] <= '9')
-			&& !(str[i] == '-') && !(str[i] == '+'))
-			return (0);
-		i++;
-	}
-	i = 0;
 	while (allowed_space(str[i]))
 		i++;
+	if (str[i] == '\0')
+		return (0);
+	if (str[i] && str[i + 1] && str[i] == '-' && str[i + 1] == '0')
+	{
+		str[i] = '0';
+		str[i + 1] = '\0';
+		i++;
+	}
 	if (str[i] == '-' || str[i] == '+')
 		i++;
+	if (str[i] == '0' && str[i + 1] && str[i + 1] == '0')
+		return (0);
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
@@ -85,12 +87,16 @@ int	check_double(char **argv)
 	y = 1;
 	while (argv[i])
 	{
-		y = 1;
+		y = i;
 		while(argv[y])
 		{
+
 			if (i != y)
+			{
 				if (!(diff_nbr(argv[i], argv[y])))
 					return (0);
+			}
+
 			y++;
 		}
 		i++;
@@ -105,9 +111,9 @@ int diff_nbr(const char *s1, const char *s2)
 
 	i = 0;
 	y = 0;
-	while (!(s1[i] >= '0' && s1[i] <= '9'))
+	while (s1[i] && !(s1[i] >= '0' && s1[i] <= '9'))
 		i++;
-	while (!(s2[y] >= '0' && s2[y] <= '9'))
+	while (s2[y] && !(s2[y] >= '0' && s2[y] <= '9'))
 		y++;
 	while (s1[i] || s2[y])
 	{
