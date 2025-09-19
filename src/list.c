@@ -1,3 +1,4 @@
+#include "../ft_libft/ft_libft.h"
 #include "../ft_printf/ft_printf.h"
 #include "pushswap.h"
 

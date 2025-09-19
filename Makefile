@@ -6,7 +6,28 @@ PINK = \033[0;38;2;255;206;248;49m
 PURPLE = \033[0;38;2;194;170;242;49m
 NONE = \033[0m
 
-LIBFTPRINTF = libftprintf.a
+LIBFT = libft.a
+LIBFT_SRCS = ft_libft/ft_atoi.c ft_libft/ft_bzero.c \
+	ft_libft/ft_calloc.c ft_libft/ft_isalnum.c \
+	ft_libft/ft_isalpha.c ft_libft/ft_isascii.c \
+	ft_libft/ft_isdigit.c ft_libft/ft_isprint.c \
+	ft_libft/ft_itoa.c ft_libft/ft_memchr.c \
+	ft_libft/ft_memmove.c ft_libft/ft_memset.c \
+	ft_libft/ft_memcpy.c ft_libft/ft_memcmp.c \
+	ft_libft/ft_putchar_fd.c ft_libft/ft_putnbr_fd.c \
+	ft_libft/ft_putstr_fd.c ft_libft/ft_split.c \
+	ft_libft/ft_strchr.c ft_libft/ft_strdup.c \
+	ft_libft/ft_striteri.c ft_libft/ft_strjoin.c \
+	ft_libft/ft_strlcat.c ft_libft/ft_strlcpy.c \
+	ft_libft/ft_strlen.c ft_libft/ft_strmapi.c \
+	ft_libft/ft_strnstr.c ft_libft/ft_strncmp.c \
+	ft_libft/ft_strnstr.c ft_libft/ft_strrchr.c \
+	ft_libft/ft_strtrim.c ft_libft/ft_substr.c \
+	ft_libft/ft_tolower.c ft_libft/ft_putendl_fd.c \
+	ft_libft/ft_toupper.c
+LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
+
+PRINTF = printf.a
 PRINTF_SRCS = ft_printf/ft_printf.c ft_printf/functions.c \
 			ft_printf/modify.c
 PRINTF_OBJS = $(PRINTF_SRCS:.c=.o)
@@ -14,18 +35,22 @@ PRINTF_OBJS = $(PRINTF_SRCS:.c=.o)
 NAME = pushswap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
-SRCS = src/main.c src/parsing.c src/parsing_utils.c \
-		src/list.c
+SRCS = src/list.c src/main.c \
+	src/parsing_utils.c src/parsing.c
 OBJS = $(SRCS:.c=.o)
 
-all: $(LIBFTPRINTF) $(NAME)
+all: $(LIBFT) $(PRINTF) $(NAME)
 
-$(LIBFTPRINTF): $(PRINTF_OBJS)
-	@ar rcs $(LIBFTPRINTF) $(PRINTF_OBJS)
-	@echo "$(LIGHTGREEN)Library created: $(LIBFTPRINTF)$(NONE)"
+$(LIBFT): $(LIBFT_OBJS)
+	@ar rcs $(LIBFT) $(LIBFT_OBJS)
+	@echo "$(LIGHTGREEN)Library libft created: $(LIBFT)$(NONE)"
 
-$(NAME): $(OBJS) $(LIBFTPRINTF)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFTPRINTF)
+$(PRINTF): $(PRINTF_OBJS)
+	@ar rcs $(PRINTF) $(PRINTF_OBJS)
+	@echo "$(LIGHTGREEN)Library printf created: $(PRINTF)$(NONE)"
+
+$(NAME): $(OBJS) $(LIBFT) $(PRINTF)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(PRINTF)
 	@echo "$(PINK)Build complete (./pushswap)$(NONE)"
 
 %.o: %.c
@@ -33,11 +58,11 @@ $(NAME): $(OBJS) $(LIBFTPRINTF)
 	@echo "$(GREEN)Compiling $<$(NONE)"
 
 clean:
-	@rm -f $(OBJS) $(PRINTF_OBJS)
+	@rm -f $(OBJS) $(LIBFT_OBJS) $(PRINTF_OBJS)
 	@echo "$(YELLOW)Cleaned objects$(NONE)"
 
 fclean: clean
-	@rm -f $(NAME) libftprintf.a
+	@rm -f $(NAME) libft.a printf.a
 	@echo "$(LIGHTYELLOW)Cleaned all$(NONE)"
 
 re: fclean all

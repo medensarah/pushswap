@@ -6,10 +6,11 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/06 06:27:32 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/19 22:36:04 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../ft_libft/ft_libft.h"
 #include "../ft_printf/ft_printf.h"
 #include "pushswap.h"
 
