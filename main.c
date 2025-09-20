@@ -6,12 +6,10 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/19 22:36:00 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/21 00:18:30 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_libft/ft_libft.h"
-#include "../ft_printf/ft_printf.h"
 #include "pushswap.h"
 
 int	main(int argc, char **argv)
@@ -37,7 +35,6 @@ int	main(int argc, char **argv)
 	stack_b = malloc(sizeof (int) * (argc + 1));
 //	if (!stack_b)
 //		return (free_fail(&stack_a, NULL), 0);
-	printf(LIGREEN"Parsing and build passed\n"NONE);
 	//printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
 	//free_fail(&stack_a, &stack_b);
 	return (1);

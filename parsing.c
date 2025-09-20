@@ -6,12 +6,10 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/20 02:27:25 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/21 00:18:45 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_libft/ft_libft.h"
-#include "../ft_printf/ft_printf.h"
 #include "pushswap.h"
 
 t_list	*init_parsing(int argc, char **argv)
@@ -20,13 +18,14 @@ t_list	*init_parsing(int argc, char **argv)
 
 	if (!argv || argc <= 1)
 		return (error(1), NULL);
-	if (argc <= 1 || argc > 20)
+	if (argc <= 2 || argc > 500)
 		return (error(2), NULL);
 	if (!check_list(argv))
 		return (NULL);
 	head = build_list(argc, argv);
 	if (!head)
 		return (error(4), NULL);
+	printf(LIGREEN"Parsing and build passed\n"NONE);
 	return (head);
 }
 
@@ -89,7 +88,7 @@ void	error(int err)
 	if (err == 1)
 		printf(RED"Error : No numbers entered\n"NONE);
 	else if (err == 2)
-		printf(RED"Error : Accepted list of numbers must be between 1 and 100\n"
+		printf(RED"Error : Accepted list of numbers must be between 1 and 500\n"
 			NONE);
 	else if (err == 3)
 		printf(RED"Error : Only numbers are allowed in argument\n"NONE);

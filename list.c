@@ -6,12 +6,10 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 02:15:06 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/20 02:16:30 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/21 00:18:59 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_libft/ft_libft.h"
-#include "../ft_printf/ft_printf.h"
 #include "pushswap.h"
 
 t_list	*create_node(int nbr)

@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/06 05:38:53 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/21 00:18:38 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <limits.h>
+
+#include "ft_libft/ft_libft.h"
+#include "ft_printf/ft_printf.h"
 
 # define GREEN		"\033[0;38;2;142;194;121m"
 # define LIGREEN	"\033[0;38;2;142;255;105m"
