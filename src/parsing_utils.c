@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/19 22:36:04 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/20 02:19:33 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,15 +89,13 @@ int	check_double(char **argv)
 	while (argv[i])
 	{
 		y = i;
-		while(argv[y])
+		while (argv[y])
 		{
-
 			if (i != y)
 			{
 				if (!(diff_nbr(argv[i], argv[y])))
 					return (0);
 			}
-
 			y++;
 		}
 		i++;
@@ -105,10 +103,10 @@ int	check_double(char **argv)
 	return (1);
 }
 
-int diff_nbr(const char *s1, const char *s2)
+int	diff_nbr(const char *s1, const char *s2)
 {
-	int i;
-	int y;
+	int	i;
+	int	y;
 
 	i = 0;
 	y = 0;

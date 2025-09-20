@@ -1,19 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/20 02:15:06 by smedenec          #+#    #+#             */
+/*   Updated: 2025/09/20 02:16:30 by smedenec         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_libft/ft_libft.h"
 #include "../ft_printf/ft_printf.h"
 #include "pushswap.h"
 
 t_list	*create_node(int nbr)
 {
-	t_list *new;
+	t_list	*new;
 
 	new = malloc(sizeof(t_list));
-	if(!new)
+	if (!new)
 		return (NULL);
 	new->nbr = nbr;
 	new->next = NULL;
 	return (new);
 }
-
 
 void	lst_addback(t_list **lst, t_list *new)
 {
@@ -32,4 +43,3 @@ void	lst_addback(t_list **lst, t_list *new)
 	else
 		*lst = new;
 }
-
