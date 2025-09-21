@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/21 00:18:38 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/21 02:11:25 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 
 typedef struct s_list {
 	int				nbr;
+	int				value;
 	struct s_list	*next;
 }	t_list;
 
@@ -44,6 +45,6 @@ int		check_double(char **argv);
 int		atoi_range(const char *str, int *out);
 int		check_number(char *str);
 int		allowed_space(char c);
-void	*free_fail(int **stack_a, int **stack_b);
+void	*free_fail(t_list **stack_a, t_list **stack_b);
 
 #endif

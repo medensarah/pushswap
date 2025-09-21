@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/21 00:18:45 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/21 02:22:01 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*init_parsing(int argc, char **argv)
 {
-	t_list	*head;
+	t_list	*stack_a;
 
 	if (!argv || argc <= 1)
 		return (error(1), NULL);
@@ -22,36 +22,36 @@ t_list	*init_parsing(int argc, char **argv)
 		return (error(2), NULL);
 	if (!check_list(argv))
 		return (NULL);
-	head = build_list(argc, argv);
-	if (!head)
-		return (error(4), NULL);
+	stack_a = build_list(argc, argv);
+	if (!stack_a)
+		return (NULL);
 	printf(LIGREEN"Parsing and build passed\n"NONE);
-	return (head);
+	return (stack_a);
 }
 
 t_list	*build_list(int argc, char **argv)
 {
 	int		i;
 	int		nbr;
-	t_list	*head;
+	t_list	*stack_a;
 	t_list	*node;
 
-	head = NULL;
+	stack_a = NULL;
 	i = 1;
 	while (i < argc)
 	{
 		if (!atoi_range(argv[i], &nbr))
-			return (NULL);
+			return (free_fail(&stack_a, NULL), NULL); //Ici free toute la stack_a
 		node = create_node(nbr);
 		if (!node)
-			return (NULL);
+			return (free_fail(&stack_a, NULL), NULL); //Ici free toute la stack_a
 		if (i == 1)
-			head = node;
+			stack_a = node;
 		else
-			lst_addback(&head, node);
+			lst_addback(&stack_a, node);
 		i++;
 	}
-	return (head);
+	return (stack_a);
 }
 
 int	check_list(char **argv)
