@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/29 12:19:45 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/29 14:14:17 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,46 @@ int	main(int argc, char **argv)
 	stack_a = init_parsing(argc, argv);
 	if (!stack_a)
 		return (0);
-	//Pour voir en temps reel
+	// boucle de stack_a
+	printf("stack_a :\n");
 	t_list *tmp = stack_a;
 	while (tmp)
 	{
 		printf("nbr %d\n", tmp->nbr);
 		tmp = tmp->next;
 	}
+	printf("____\n");
+	// boucle de stack_b
+	printf("stack_b :\n");
+	tmp = stack_b;
+	while (tmp)
+	{
+		printf("nbr %d\n", tmp->nbr);
+		tmp = tmp->next;
+	}
+	printf("____\n");
+	// ici le test
+	printf("sa\n");
+	swap_a(&stack_a);
+	printf("____\n");
+	// boucle de stack_a
+	printf("stack_a :\n");
+	tmp = stack_a;
+	while (tmp)
+	{
+		printf("nbr %d\n", tmp->nbr);
+		tmp = tmp->next;
+	}
+	printf("____\n");
+	// boucle de stack_b
+	printf("stack_b :\n");
+	tmp = stack_b;
+	while (tmp)
+	{
+		printf("nbr %d\n", tmp->nbr);
+		tmp = tmp->next;
+	}
+	printf("____\n");
 	// //if stack is sorted
 	// printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
 	free_fail(&stack_a, &stack_b);

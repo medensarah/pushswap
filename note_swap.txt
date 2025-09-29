@@ -16,14 +16,14 @@ A LA FIN PAS OUBLIER
 // REMOVE "The stack is sorted in ascending order\n"
 // REMOVE "The stack is sorted in ascending order\n"
 
-sa
+sa (swap_a)
 intervertit les 2 premiers éléments au sommet de la pile a.
 Ne fait rien s’il n’y en a qu’un ou aucun.
 
-pb
+pb (push_b)
 Prend le premier élément au sommet de a et le met sur b.
 Ne fait rien si a est vide.
 
-pa
+pa (push_a)
 Prend le premier élément au sommet de b et le met sur a.
 Ne fait rien si b est vide.

@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/29 12:13:06 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/29 13:59:02 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,8 @@ int		check_double(char **argv);
 int		atoi_range(const char *str, int *nbr);
 int		check_number(char *str);
 void	*free_fail(t_list **stack_a, t_list **stack_b);
+void	swap_a(t_list **stack_a);
+void	push_b(t_list **stack_a, t_list **stack_b);
+void	push_a(t_list **stack_a, t_list **stack_b);
 
 #endif
