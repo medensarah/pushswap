@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/21 02:11:25 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/29 12:13:06 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <stdlib.h>
 # include <limits.h>
 
-#include "ft_libft/ft_libft.h"
-#include "ft_printf/ft_printf.h"
+# include "ft_libft/ft_libft.h"
+# include "ft_printf/ft_printf.h"
 
 # define GREEN		"\033[0;38;2;142;194;121m"
 # define LIGREEN	"\033[0;38;2;142;255;105m"
@@ -42,9 +42,8 @@ void	error(int i);
 int		diff_nbr(const char *s1, const char *s2);
 int		check_list(char **argv);
 int		check_double(char **argv);
-int		atoi_range(const char *str, int *out);
+int		atoi_range(const char *str, int *nbr);
 int		check_number(char *str);
-int		allowed_space(char c);
 void	*free_fail(t_list **stack_a, t_list **stack_b);
 
 #endif

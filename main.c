@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/21 02:23:47 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/29 12:19:45 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,29 +23,39 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (0);
 	//Pour voir en temps reel
-	while (stack_a)
+	t_list *tmp = stack_a;
+	while (tmp)
 	{
-		printf("nbr %d\n", stack_a->nbr);
-		stack_a = stack_a->next;
+		printf("nbr %d\n", tmp->nbr);
+		tmp = tmp->next;
 	}
 	// //if stack is sorted
 	// printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
-	//free everything
 	free_fail(&stack_a, &stack_b);
 	return (1);
 }
 
 void	*free_fail(t_list **stack_a, t_list **stack_b)
 {
+	t_list	*tmp;
+
 	if (stack_a && *stack_a)
 	{
-		free(*stack_a);
-		*stack_a = NULL;
+		while (*stack_a)
+		{
+			tmp = (*stack_a)->next;
+			free(*stack_a);
+			*stack_a = tmp;
+		}
 	}
 	if (stack_b && *stack_b)
 	{
-		free(*stack_b);
-		*stack_b = NULL;
+		while (*stack_b)
+		{
+			tmp = (*stack_b)->next;
+			free(*stack_b);
+			*stack_b = tmp;
+		}
 	}
 	return (NULL);
 }

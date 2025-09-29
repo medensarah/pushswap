@@ -6,43 +6,46 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/21 00:18:51 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/29 12:03:43 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	allowed_space(char c)
+static long long	parse_number(const char *str, int *i, int *sign)
 {
-	if ((c == ' ' || c == '\b' || c == '\t' || c == '\n'
-			|| c == '\v' || c == '\f' || c == '\r'))
-		return (1);
-	return (0);
+	long long	result;
+
+	*i = 0;
+	*sign = 1;
+	result = 0;
+	while (str[*i] == ' ' || str[*i] == '\b' || str[*i] == '\t'
+		|| str[*i] == '\n' || str[*i] == '\v' || str[*i] == '\f'
+		|| str[*i] == '\r')
+		(*i)++;
+	if (str[*i] == '-' || str[*i] == '+')
+	{
+		if (str[(*i)++] == '-')
+			*sign = -1;
+	}
+	while (str[*i] >= '0' && str[*i] <= '9')
+	{
+		result = result * 10 + (str[*i] - '0');
+		(*i)++;
+	}
+	return (result);
 }
 
 int	atoi_range(const char *str, int *nbr)
 {
-	int		i;
-	int		sign;
-	long	result;
+	int			i;
+	int			sign;
+	long long	result;
 
-	i = 0;
-	sign = 1;
-	result = 0;
-	while (allowed_space(str[i]))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	if ((sign == 1 && result > INT_MAX) || (sign == -1 && - result < INT_MIN))
+	result = parse_number(str, &i, &sign);
+	if (str[i] != '\0')
+		return (0);
+	if ((sign == 1 && result > INT_MAX) || (sign == -1 && (-result < INT_MIN)))
 		return (0);
 	if (nbr)
 		*nbr = (int)(sign * result);
@@ -54,7 +57,8 @@ int	check_number(char *str)
 	int	i;
 
 	i = 0;
-	while (allowed_space(str[i]))
+	while (str[i] == ' ' || str[i] == '\b' || str[i] == '\t'
+		|| str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
 	if (str[i] == '\0')
 		return (0);

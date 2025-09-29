@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/21 02:22:01 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/29 12:14:47 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ t_list	*build_list(int argc, char **argv)
 	while (i < argc)
 	{
 		if (!atoi_range(argv[i], &nbr))
-			return (free_fail(&stack_a, NULL), NULL); //Ici free toute la stack_a
+			return (free_fail(&stack_a, NULL), NULL);
 		node = create_node(nbr);
 		if (!node)
-			return (free_fail(&stack_a, NULL), NULL); //Ici free toute la stack_a
+			return (free_fail(&stack_a, NULL), NULL);
 		if (i == 1)
 			stack_a = node;
 		else
@@ -58,7 +58,6 @@ int	check_list(char **argv)
 {
 	int	i;
 
-	printf("Checking %s...\n", argv[0]);
 	i = 1;
 	while (argv[i])
 	{
