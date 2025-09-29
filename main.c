@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/29 14:14:17 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/29 16:43:32 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(int argc, char **argv)
 	}
 	printf("____\n");
 	// ici le test
-	printf("sa\n");
-	swap_a(&stack_a);
+	printf("ra\n");
+	rotate_a(&stack_a);
 	printf("____\n");
 	// boucle de stack_a
 	printf("stack_a :\n");

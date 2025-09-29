@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/29 13:59:02 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/29 17:26:48 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,16 @@ t_list	*create_node(int nbr);
 t_list	*init_parsing(int argc, char **argv);
 t_list	*build_list(int argc, char **argv);
 void	lst_addback(t_list **head, t_list *new);
-void	error(int i);
+void	*error();
 int		diff_nbr(const char *s1, const char *s2);
 int		check_list(char **argv);
 int		check_double(char **argv);
 int		atoi_range(const char *str, int *nbr);
 int		check_number(char *str);
 void	*free_fail(t_list **stack_a, t_list **stack_b);
-void	swap_a(t_list **stack_a);
 void	push_b(t_list **stack_a, t_list **stack_b);
 void	push_a(t_list **stack_a, t_list **stack_b);
+void	rotate_a(t_list **stack_a);
+int		list_len(t_list *lst);
 
 #endif

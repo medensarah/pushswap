@@ -6,24 +6,40 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 02:15:06 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/29 13:52:50 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/29 16:42:00 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	swap_a(t_list **stack_a)
-{
-	t_list	*tmp_1;
-	t_list	*tmp_2;
+// void	swap_a(t_list **stack_a)
+// {
+// 	t_list	*tmp_1;
+// 	t_list	*tmp_2;
 
-	if (!stack_a || !*stack_a || (*stack_a)->next == NULL)
+// 	if (!stack_a || !*stack_a || (*stack_a)->next == NULL)
+// 		return ;
+// 	tmp_1 = *stack_a;
+// 	tmp_2 = tmp_1->next;
+// 	tmp_1->next = tmp_2->next;
+// 	tmp_2->next = tmp_1;
+// 	*stack_a = tmp_2;
+// }
+
+void	rotate_a(t_list **stack_a)
+{
+	t_list	*first;
+	t_list	*last;
+
+	if (!stack_a || !*stack_a)
 		return ;
-	tmp_1 = *stack_a;
-	tmp_2 = tmp_1->next;
-	tmp_1->next = tmp_2->next;
-	tmp_2->next = tmp_1;
-	*stack_a = tmp_2;
+	first = *stack_a;
+	*stack_a = first->next;
+	last = *stack_a;
+	while (last->next)
+		last = last->next;
+	last->next = first;
+	first->next = NULL;
 }
 
 void	push_b(t_list **stack_a, t_list **stack_b)

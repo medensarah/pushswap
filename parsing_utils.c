@@ -6,79 +6,91 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/29 12:03:43 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/09/29 18:09:21 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static long long	parse_number(const char *str, int *i, int *sign)
+static long long	parse_number(const char *str, int *i, int *sign, int *overflow)
 {
 	long long	result;
+	int			digit;
 
+	result = 0;
 	*i = 0;
 	*sign = 1;
-	result = 0;
-	while (str[*i] == ' ' || str[*i] == '\b' || str[*i] == '\t'
-		|| str[*i] == '\n' || str[*i] == '\v' || str[*i] == '\f'
-		|| str[*i] == '\r')
+	*overflow = 0;
+	while (str[*i] == ' ' || str[*i] == '\t' || str[*i] == '\n'
+		|| str[*i] == '\v' || str[*i] == '\f' || str[*i] == '\r')
 		(*i)++;
 	if (str[*i] == '-' || str[*i] == '+')
 	{
-		if (str[(*i)++] == '-')
+		if (str[*i] == '-')
 			*sign = -1;
+		(*i)++;
 	}
 	while (str[*i] >= '0' && str[*i] <= '9')
 	{
-		result = result * 10 + (str[*i] - '0');
+		digit = str[*i] - '0';
+		if (result > (LLONG_MAX - digit) / 10)
+			*overflow = 1;
+		result = result * 10 + digit;
 		(*i)++;
 	}
 	return (result);
 }
 
-int	atoi_range(const char *str, int *nbr)
+int atoi_range(const char *str, int *nbr)
 {
 	int			i;
 	int			sign;
+	int			overflow;
 	long long	result;
+	long long	signed_result;
 
-	result = parse_number(str, &i, &sign);
+	result = parse_number(str, &i, &sign, &overflow);
 	if (str[i] != '\0')
 		return (0);
-	if ((sign == 1 && result > INT_MAX) || (sign == -1 && (-result < INT_MIN)))
+	signed_result = result;
+	if (sign == -1)
+		signed_result = -result;
+	if (overflow)
+		return (0);
+	if (signed_result < INT_MIN || signed_result > INT_MAX)
 		return (0);
 	if (nbr)
-		*nbr = (int)(sign * result);
+		*nbr = (int)signed_result;
 	return (1);
 }
 
 int	check_number(char *str)
 {
 	int	i;
+	int	digit;
 
 	i = 0;
+	digit = 0;
 	while (str[i] == ' ' || str[i] == '\b' || str[i] == '\t'
 		|| str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
-	if (str[i] == '\0')
-		return (0);
-	if (str[i] && str[i + 1] && str[i] == '-' && str[i + 1] == '0')
+	if (str[i] && str[i + 1] && str[i] == '-' && str[i + 1] == '0' && !str[i + 2])
 	{
 		str[i] = '0';
 		str[i + 1] = '\0';
-		i++;
 	}
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	if (str[i] == '0' && str[i + 1] && str[i + 1] == '0')
+	if (str[i] && str[i] == '0' && str[i + 1] && str[i + 1] == '0')
 		return (0);
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (0);
+		digit = 1;
 		i++;
 	}
-	return (1);
+	return (digit);
 }
 
 int	check_double(char **argv)

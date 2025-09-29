@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.c                                             :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/20 02:15:06 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/29 15:42:51 by smedenec         ###   ########.fr       */
+/*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
+/*   Updated: 2025/09/29 17:06:23 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_list	*create_node(int nbr)
+// int radix(t_list **stack_a, t_list **stack_b)
+// {
+
+// }
+
+int	list_len(t_list *lst)
 {
-	t_list	*new;
+	int	i;
 
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->nbr = nbr;
-	new->next = NULL;
-	return (new);
-}
-
-void	lst_addback(t_list **lst, t_list *new)
-{
-	t_list	*current;
-
-	if (!lst || !new)
-		return ;
-	if (!*lst)
+	i = 0;
+	while (lst)
 	{
-		*lst = new;
-		return ;
+		lst = lst->next;
+		i++;
 	}
-	current = *lst;
-	while (current->next)
-		current = current->next;
-	current->next = new;
+	return (i);
 }
