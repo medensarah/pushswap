@@ -21,9 +21,9 @@ A LA FIN PAS OUBLIER
 // Si aucun paramètre, return rien du tout
 // Si erreur, print "Error" suivi d’un ’\n’ sur la sortie d’erreur.
 
-sa (swap_a)
-intervertit les 2 premiers éléments au sommet de la pile a.
-Ne fait rien s’il n’y en a qu’un ou aucun.
+ra (rotate_a)
+Décale d’une position vers le haut tous les élements de la pile a.
+Le premier élément devient le dernier.
 
 pb (push_b)
 Prend le premier élément au sommet de a et le met sur b.

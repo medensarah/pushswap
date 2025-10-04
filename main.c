@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/29 16:43:32 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/04 13:55:37 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 		return (0);
 	// boucle de stack_a
 	printf("stack_a :\n");
-	t_list *tmp = stack_a;
+	t_list	*tmp = stack_a;
 	while (tmp)
 	{
 		printf("nbr %d\n", tmp->nbr);

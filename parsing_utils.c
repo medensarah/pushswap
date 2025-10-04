@@ -6,13 +6,13 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/09/29 18:09:21 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/04 15:16:29 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static long long	parse_number(const char *str, int *i, int *sign, int *overflow)
+static long long	parse_number(const char *str, int *i, int *sign, int *over)
 {
 	long long	result;
 	int			digit;
@@ -20,7 +20,7 @@ static long long	parse_number(const char *str, int *i, int *sign, int *overflow)
 	result = 0;
 	*i = 0;
 	*sign = 1;
-	*overflow = 0;
+	*over = 0;
 	while (str[*i] == ' ' || str[*i] == '\t' || str[*i] == '\n'
 		|| str[*i] == '\v' || str[*i] == '\f' || str[*i] == '\r')
 		(*i)++;
@@ -34,33 +34,29 @@ static long long	parse_number(const char *str, int *i, int *sign, int *overflow)
 	{
 		digit = str[*i] - '0';
 		if (result > (LLONG_MAX - digit) / 10)
-			*overflow = 1;
+			*over = 1;
 		result = result * 10 + digit;
 		(*i)++;
 	}
 	return (result);
 }
 
-int atoi_range(const char *str, int *nbr)
+int	atoi_range(const char *str, int *nbr)
 {
 	int			i;
 	int			sign;
-	int			overflow;
+	int			over;
 	long long	result;
-	long long	signed_result;
 
-	result = parse_number(str, &i, &sign, &overflow);
-	if (str[i] != '\0')
+	result = parse_number(str, &i, &sign, &over);
+	if (over)
 		return (0);
-	signed_result = result;
 	if (sign == -1)
-		signed_result = -result;
-	if (overflow)
-		return (0);
-	if (signed_result < INT_MIN || signed_result > INT_MAX)
+		result = -result;
+	if (result < INT_MIN || result > INT_MAX)
 		return (0);
 	if (nbr)
-		*nbr = (int)signed_result;
+		*nbr = (int)result;
 	return (1);
 }
 
@@ -74,7 +70,7 @@ int	check_number(char *str)
 	while (str[i] == ' ' || str[i] == '\b' || str[i] == '\t'
 		|| str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
-	if (str[i] && str[i + 1] && str[i] == '-' && str[i + 1] == '0' && !str[i + 2])
+	if (str[i] == '-' && str[i + 1] == '0' && !str[i + 2])
 	{
 		str[i] = '0';
 		str[i + 1] = '\0';
