@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/04 13:54:42 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/04 15:26:08 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ int	check_list(char **argv)
 
 void	*error(void)
 {
-	printf("Error\n");
+	ft_printf("Error\n");
 	return (NULL);
 }

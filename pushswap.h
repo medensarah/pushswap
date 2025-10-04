@@ -6,14 +6,13 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/04 13:55:00 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/04 15:24:20 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-# include <stdio.h>
 # include <string.h>
 # include <stddef.h>
 # include <stdlib.h>

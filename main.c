@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/04 13:55:37 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/04 15:25:40 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,47 +23,47 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (0);
 	// boucle de stack_a
-	printf("stack_a :\n");
+	ft_printf("stack_a :\n");
 	t_list	*tmp = stack_a;
 	while (tmp)
 	{
-		printf("nbr %d\n", tmp->nbr);
+		ft_printf("nbr %d\n", tmp->nbr);
 		tmp = tmp->next;
 	}
-	printf("____\n");
+	ft_printf("____\n");
 	// boucle de stack_b
-	printf("stack_b :\n");
+	ft_printf("stack_b :\n");
 	tmp = stack_b;
 	while (tmp)
 	{
-		printf("nbr %d\n", tmp->nbr);
+		ft_printf("nbr %d\n", tmp->nbr);
 		tmp = tmp->next;
 	}
-	printf("____\n");
+	ft_printf("____\n");
 	// ici le test
-	printf("ra\n");
+	ft_printf("ra\n");
 	rotate_a(&stack_a);
-	printf("____\n");
+	ft_printf("____\n");
 	// boucle de stack_a
-	printf("stack_a :\n");
+	ft_printf("stack_a :\n");
 	tmp = stack_a;
 	while (tmp)
 	{
-		printf("nbr %d\n", tmp->nbr);
+		ft_printf("nbr %d\n", tmp->nbr);
 		tmp = tmp->next;
 	}
-	printf("____\n");
+	ft_printf("____\n");
 	// boucle de stack_b
-	printf("stack_b :\n");
+	ft_printf("stack_b :\n");
 	tmp = stack_b;
 	while (tmp)
 	{
-		printf("nbr %d\n", tmp->nbr);
+		ft_printf("nbr %d\n", tmp->nbr);
 		tmp = tmp->next;
 	}
-	printf("____\n");
+	ft_printf("____\n");
 	// //if stack is sorted
-	// printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
+	// ft_printf(LIGREEN"The stack is sorted in ascending order\n"NONE);
 	free_fail(&stack_a, &stack_b);
 	return (1);
 }
