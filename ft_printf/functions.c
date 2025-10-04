@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 20:21:40 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 16:32:29 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/04 18:11:52 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@ void	puthexa(unsigned long n, char c, int *count)
 	base = "0123456789abcdef";
 	if (c == 'X')
 		base = "0123456789ABCDEF";
-	if (n < 0)
-	{
-		n = n * -1;
-		count_print('-', count);
-	}
 	if (n < 16)
 	{
 		a = base[n];
