@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/04 17:18:46 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/04 18:00:45 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ void	*free_fail(t_list **stack_a, t_list **stack_b);
 void	push_b(t_list **stack_a, t_list **stack_b);
 void	push_a(t_list **stack_a, t_list **stack_b);
 void	rotate_a(t_list **stack_a);
-int		list_len(t_list *lst);
+int		list_len(t_list **lst);
+int		radix_5(t_list **stack_a, t_list **stack_b);
+int		radix_100(t_list **stack_a, t_list **stack_b);
+int		radix_500(t_list **stack_a, t_list **stack_b);
 
 #endif
