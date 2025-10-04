@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/04 15:24:20 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/04 17:18:46 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_list {
 
 t_list	*create_node(int nbr);
 t_list	*init_parsing(int argc, char **argv);
-t_list	*build_list(int argc, char **argv);
+t_list	*build_list(int argc, char **argv, int i);
 void	lst_addback(t_list **head, t_list *new);
 void	*error(void);
 int		diff_nbr(const char *s1, const char *s2);
