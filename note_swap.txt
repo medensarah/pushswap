@@ -8,6 +8,10 @@ ra (rotate_a)
 Décale d’une position vers le haut tous les élements de la pile a.
 Le premier élément devient le dernier.
 
+rra (reverse_rotate_a)
+Décale d’une position vers le bas tous les élements de la pile a.
+Le dernier élément devient le premier.
+
 pb (push_b)
 Prend le premier élément au sommet de a et le met sur b.
 Ne fait rien si a est vide.
