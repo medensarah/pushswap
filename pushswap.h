@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/04 18:00:45 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/05 17:17:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,9 @@ void	push_b(t_list **stack_a, t_list **stack_b);
 void	push_a(t_list **stack_a, t_list **stack_b);
 void	rotate_a(t_list **stack_a);
 int		list_len(t_list **lst);
-int		radix_5(t_list **stack_a, t_list **stack_b);
+int		only_five(t_list **stack_a, t_list **stack_b);
 int		radix_100(t_list **stack_a, t_list **stack_b);
 int		radix_500(t_list **stack_a, t_list **stack_b);
+int		sort_id(t_list **stack_a, t_list **stack_b);
 
 #endif

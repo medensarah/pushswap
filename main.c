@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/04 18:00:15 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/05 20:06:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,47 @@ int	main(int argc, char **argv)
 	stack_a = init_parsing(argc, argv);
 	if (!stack_a)
 		return (0);
-	len_a = list_len(&stack_a);
-	if (len_a <= 5)
-		radix_5(&stack_a, &stack_b);
-	else if (len_a <= 100)
-		radix_100(&stack_a, &stack_a);
-	else
-		radix_500(&stack_a, &stack_a);
+	sort_id(&stack_a, &stack_b);
+	// boucle de stack_a
+	ft_printf("stack_a :\n");
+	t_list	*tmp = stack_a;
+	while (tmp)
+	{
+		ft_printf("nbr %d\n", tmp->nbr);
+		tmp = tmp->next;
+	}
+	ft_printf("____\n");
+	// boucle de stack_b
+	ft_printf("stack_b :\n");
+	tmp = stack_b;
+	while (tmp)
+	{
+		ft_printf("nbr %d\n", tmp->nbr);
+		tmp = tmp->next;
+	}
+	ft_printf("____\n");
+	// ici le test
+	ft_printf("ra\n");
+	rotate_a(&stack_a);
+	ft_printf("____\n");
+	// boucle de stack_a
+	ft_printf("stack_a :\n");
+	tmp = stack_a;
+	while (tmp)
+	{
+		ft_printf("nbr %d\n", tmp->nbr);
+		tmp = tmp->next;
+	}
+	ft_printf("____\n");
+	// boucle de stack_b
+	ft_printf("stack_b :\n");
+	tmp = stack_b;
+	while (tmp)
+	{
+		ft_printf("nbr %d\n", tmp->nbr);
+		tmp = tmp->next;
+	}
+	ft_printf("____\n");
 	free_fail(&stack_a, &stack_b);
 	return (1);
 }
@@ -57,19 +91,6 @@ void	*free_fail(t_list **stack_a, t_list **stack_b)
 		}
 	}
 	return (NULL);
-}
-
-int	list_len(t_list **lst)
-{
-	int	i;
-
-	i = 0;
-	while (lst && *lst)
-	{
-		*lst = (*lst)->next;
-		i++;
-	}
-	return (i);
 }
 
 // // boucle de stack_a
