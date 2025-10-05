@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/05 17:17:08 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/05 21:57:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 # define LIRED		"\033[0;38;2;247;14;21;49m"
 # define NONE		"\033[0m"
 
-typedef struct s_list {
+typedef struct s_list 
+{
 	int				nbr;
 	int				value;
 	struct s_list	*next;
@@ -47,10 +48,13 @@ void	*free_fail(t_list **stack_a, t_list **stack_b);
 void	push_b(t_list **stack_a, t_list **stack_b);
 void	push_a(t_list **stack_a, t_list **stack_b);
 void	rotate_a(t_list **stack_a);
-int		list_len(t_list **lst);
-int		only_five(t_list **stack_a, t_list **stack_b);
+void	swap_a(t_list **stack_a);
+int		list_len(t_list **stack_a);
+void	sort_tab(int *tab, int len);
+int		only_five(t_list **stack_a, t_list **stack_b, int len_a);
 int		radix_100(t_list **stack_a, t_list **stack_b);
 int		radix_500(t_list **stack_a, t_list **stack_b);
-int		sort_id(t_list **stack_a, t_list **stack_b);
+int		sort_init(t_list **stack_a, t_list **stack_b);
+void	sort_id(t_list **stack_a, t_list *tmp, int *tab, int len_a);
 
 #endif

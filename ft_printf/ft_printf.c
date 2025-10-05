@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 04:48:37 by smedenec          #+#    #+#             */
-/*   Updated: 2025/07/31 16:28:14 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/05 21:11:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_printf(const char *s, ...)
 			write(1, s, 1);
 			(*count)++;
 		}
-	s++;
+		s++;
 	}
 	return (num);
 }
