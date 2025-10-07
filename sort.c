@@ -49,17 +49,14 @@ void	sort_id(t_list **stack_a, t_list *tmp, int *tab, int len_a)
 	tmp = *stack_a;
 	while (tmp)
 	{
-    	i = 0;
-    	while (i < len_a)
-    	{
-        	if (tab[i] == tmp->nbr)
-        		{
-            	tmp->value = i;
-            	break;
-        	}
-        	i++;
-    	}
-    	tmp = tmp->next;
+		i = 0;
+		while (i < len_a)
+		{
+			if (tab[i] == tmp->nbr)
+				tmp->value = i; // on continue même après avoir trouvé
+			i++;
+		}
+		tmp = tmp->next;
 	}
 }
 
