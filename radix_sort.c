@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/09 16:46:30 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/09 16:53:13 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	radix_100(t_list **stack_a, t_list **stack_b, int len_a)
 		}
 		while (*stack_b)
 			push_a(stack_a, stack_b);
-			i++;
+		i++;
 	}
 }
 

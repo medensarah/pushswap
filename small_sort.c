@@ -69,6 +69,7 @@ void	sort_five(t_list **stack_a, t_list **stack_b)
 
 	tmp = *stack_a;
 	push_min_to_b(stack_a, stack_b, tmp);
+	tmp = *stack_a;
 	push_min_to_b(stack_a, stack_b, tmp);
 	sort_three(stack_a);
 	push_a(stack_a, stack_b);
