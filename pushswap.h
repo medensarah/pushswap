@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/05 23:26:08 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/09 02:14:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,10 @@ int		radix_100(t_list **stack_a, t_list **stack_b);
 int		radix_500(t_list **stack_a, t_list **stack_b);
 int		sort_init(t_list **stack_a, t_list **stack_b);
 void	sort_id(t_list **stack_a, t_list *tmp, int *tab, int len_a);
+int		is_sorted(t_list *stack);
+void	sort_three(t_list **stack_a);
+void 	sort_four(t_list **stack_a, t_list **stack_b);
+void	sort_five(t_list **stack_a, t_list **stack_b);
+void	push_min_to_b(t_list **stack_a, t_list **stack_b, t_list *tmp);
 
 #endif

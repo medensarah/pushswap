@@ -24,14 +24,16 @@ int	sort_init(t_list **stack_a, t_list **stack_b)
 		return (free_fail(stack_a, NULL), 0);
 	tmp = *stack_a;
 	sort_id(stack_a, tmp, tab, len_a);
+	free(tab);
+	tab = NULL;
+	if (is_sorted(*stack_a))
+		return (1);
 	if (len_a <= 5)
 		only_five(stack_a, stack_b, len_a);
 	else if (len_a <= 100)
 		radix_100(stack_a, stack_b);
 	else
 		radix_500(stack_a, stack_b);
-	free(tab);
-	tab = NULL;
 	return (1);
 }
 
@@ -97,4 +99,15 @@ void	sort_tab(int *tab, int len)
         }
         i++;
     }
+}
+
+int	is_sorted(t_list *stack)
+{
+	while (stack && stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
