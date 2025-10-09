@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/09 14:31:23 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/09 16:44:29 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define LIRED		"\033[0;38;2;247;14;21;49m"
 # define NONE		"\033[0m"
 
-typedef struct s_list 
+typedef struct s_list
 {
 	int				nbr;
 	int				value;
@@ -49,7 +49,7 @@ void	push_b(t_list **stack_a, t_list **stack_b);
 void	push_a(t_list **stack_a, t_list **stack_b);
 void	rotate_a(t_list **stack_a);
 void	swap_a(t_list **stack_a);
-void    reverse_rotate_a(t_list **stack_a);
+void	reverse_rotate_a(t_list **stack_a);
 int		list_len(t_list **stack_a);
 void	sort_tab(int *tab, int len);
 int		only_five(t_list **stack_a, t_list **stack_b, int len_a);
@@ -59,7 +59,7 @@ int		sort_init(t_list **stack_a, t_list **stack_b);
 void	sort_id(t_list **stack_a, t_list *tmp, int *tab, int len_a);
 int		is_sorted(t_list *stack);
 void	sort_three(t_list **stack_a);
-void 	sort_four(t_list **stack_a, t_list **stack_b);
+void	sort_four(t_list **stack_a, t_list **stack_b);
 void	sort_five(t_list **stack_a, t_list **stack_b);
 void	push_min_to_b(t_list **stack_a, t_list **stack_b, t_list *tmp);
 

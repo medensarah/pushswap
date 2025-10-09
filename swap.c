@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 02:15:06 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/05 22:58:17 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/09 16:49:38 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,26 @@ void	rotate_a(t_list **stack_a)
 	first->next = NULL;
 	ft_printf("ra\n");
 }
-//Le premier élément devient le dernier.
 
-void    reverse_rotate_a(t_list **stack_a)
+void	reverse_rotate_a(t_list **stack_a)
 {
-    t_list  *prev;
-    t_list  *last;
+	t_list	*prev;
+	t_list	*last;
 
-    if (!stack_a || !*stack_a || !(*stack_a)->next)
-        return ;
-    prev = NULL;
-    last = *stack_a;
-    while (last->next)
-    {
-        prev = last;
-        last = last->next;
-    }
-    prev->next = NULL;
-    last->next = *stack_a;
-    *stack_a = last;
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		return ;
+	prev = NULL;
+	last = *stack_a;
+	while (last->next)
+	{
+		prev = last;
+		last = last->next;
+	}
+	prev->next = NULL;
+	last->next = *stack_a;
+	*stack_a = last;
 	ft_printf("rra\n");
 }
-//Le dernier élément devient le premier.
 
 void	push_b(t_list **stack_a, t_list **stack_b)
 {

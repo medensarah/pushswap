@@ -39,7 +39,7 @@ int	sort_init(t_list **stack_a, t_list **stack_b)
 
 void	sort_id(t_list **stack_a, t_list *tmp, int *tab, int len_a)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (tmp)
@@ -55,7 +55,7 @@ void	sort_id(t_list **stack_a, t_list *tmp, int *tab, int len_a)
 		while (i < len_a)
 		{
 			if (tab[i] == tmp->nbr)
-				tmp->value = i; // on continue même après avoir trouvé
+				tmp->value = i;
 			i++;
 		}
 		tmp = tmp->next;
@@ -79,26 +79,26 @@ int	list_len(t_list **stack_a)
 
 void	sort_tab(int *tab, int len)
 {
-    int i;
-    int j;
-    int tmp;
+	int	i;
+	int	j;
+	int	tmp;
 
 	i = 0;
 	while (i < len - 1)
 	{
 		j = 0;
-        while (j < len - i - 1)
+		while (j < len - i - 1)
 		{
 			if (tab[j] > tab[j + 1])
-            {
+			{
 				tmp = tab[j];
-                tab[j] = tab[j + 1];
-                tab[j + 1] = tmp;
-            }
-            j++;
-        }
-        i++;
-    }
+				tab[j] = tab[j + 1];
+				tab[j + 1] = tmp;
+			}
+			j++;
+		}
+		i++;
+	}
 }
 
 int	is_sorted(t_list *stack)
