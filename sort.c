@@ -31,9 +31,9 @@ int	sort_init(t_list **stack_a, t_list **stack_b)
 	if (len_a <= 5)
 		only_five(stack_a, stack_b, len_a);
 	else if (len_a <= 100)
-		radix_100(stack_a, stack_b);
+		radix_100(stack_a, stack_b, len_a);
 	else
-		radix_500(stack_a, stack_b);
+		radix_500(stack_a, stack_b, len_a);
 	return (1);
 }
 
