@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/04 17:17:46 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:17:11 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*init_parsing(int argc, char **argv)
 	i = 1;
 	if (!argv || argc <= 1)
 		return (NULL);
-	if (argc > 501)
+	if (argc > 700)
 		return (error());
 	if (argc == 2 && argv[1])
 	{

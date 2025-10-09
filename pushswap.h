@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/09 16:44:29 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:00:34 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ void	reverse_rotate_a(t_list **stack_a);
 int		list_len(t_list **stack_a);
 void	sort_tab(int *tab, int len);
 int		only_five(t_list **stack_a, t_list **stack_b, int len_a);
-void	radix_100(t_list **stack_a, t_list **stack_b, int len_a);
-void	radix_500(t_list **stack_a, t_list **stack_b, int len_a);
+void	radix(t_list **stack_a, t_list **stack_b, int len_a);
 int		sort_init(t_list **stack_a, t_list **stack_b);
 void	sort_id(t_list **stack_a, t_list *tmp, int *tab, int len_a);
 int		is_sorted(t_list *stack);

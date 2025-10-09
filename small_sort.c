@@ -60,7 +60,6 @@ void	sort_four(t_list **stack_a, t_list **stack_b)
 	push_min_to_b(stack_a, stack_b, tmp);
 	sort_three(stack_a);
 	push_a(stack_a, stack_b);
-	ft_printf("''4''\n");
 }
 
 void	sort_five(t_list **stack_a, t_list **stack_b)

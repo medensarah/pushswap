@@ -8,9 +8,9 @@ NONE = \033[0m
 
 NAME = pushswap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 SRCS = list.c main.c parsing_utils.c parsing.c swap.c radix_sort.c \
-	radix_utils.c sort.c small_sort.c
+	sort.c small_sort.c
 OBJDIR = objects
 OBJS = $(SRCS:.c=.o)
 OBJS := $(addprefix $(OBJDIR)/, $(OBJS))

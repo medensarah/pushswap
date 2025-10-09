@@ -31,9 +31,6 @@ RECAP----------------------------------------------------------------
 A LA FIN PAS OUBLIER---------------------------------------------------
 // remove the -g3 in CFLAGS
 // bien remettre tous les flags
-// attention : modif limit list (5-100)
-// REMOVE tous les print a part les 'Error\n'
+// attention : modif limit list (5-500)
+// REMOVE tous les print a part les 'Error\n' et 'swap\n'
 -----------------------------------------------------------------------
-
-// Que faire quand la pile est deja trier ?
-

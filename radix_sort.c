@@ -6,13 +6,13 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/09 16:53:13 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:01:45 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	radix_100(t_list **stack_a, t_list **stack_b, int len_a)
+void	radix(t_list **stack_a, t_list **stack_b, int len_a)
 {
 	int	i;
 	int	j;
@@ -37,10 +37,4 @@ void	radix_100(t_list **stack_a, t_list **stack_b, int len_a)
 			push_a(stack_a, stack_b);
 		i++;
 	}
-}
-
-void	radix_500(t_list **stack_a, t_list **stack_b, int len_a)
-{
-	radix_100(stack_a, stack_b, len_a);
-	ft_printf("500");
 }
