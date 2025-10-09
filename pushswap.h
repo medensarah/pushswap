@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/09 18:00:34 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/10 01:16:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_list
 }	t_list;
 
 t_list	*create_node(int nbr);
-t_list	*init_parsing(int argc, char **argv);
+t_list	*init_parsing(int argc, char ***argv, int *argv_malloced);
 t_list	*build_list(int argc, char **argv, int i);
 void	lst_addback(t_list **head, t_list *new);
 void	*error(void);
@@ -61,5 +61,6 @@ void	sort_three(t_list **stack_a);
 void	sort_four(t_list **stack_a, t_list **stack_b);
 void	sort_five(t_list **stack_a, t_list **stack_b);
 void	push_min_to_b(t_list **stack_a, t_list **stack_b, t_list *tmp);
+void	*free_split(char **argv);
 
 #endif

@@ -8,7 +8,7 @@ NONE = \033[0m
 
 NAME = pushswap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 SRCS = list.c main.c parsing_utils.c parsing.c swap.c radix_sort.c \
 	sort.c small_sort.c
 OBJDIR = objects
