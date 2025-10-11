@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:12:41 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/10 01:16:32 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/11 20:35:42 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ t_list	*build_list(int argc, char **argv, int i);
 void	lst_addback(t_list **head, t_list *new);
 void	*error(void);
 int		diff_nbr(const char *s1, const char *s2);
-int		check_list(char **argv);
+int		check_list(char **argv, int i);
 int		check_double(char **argv);
-int		atoi_range(const char *str, int *nbr);
+int		atoi_range(const char *str, int *nbr, int verif);
 int		check_number(char *str);
 void	*free_fail(t_list **stack_a, t_list **stack_b);
 void	push_b(t_list **stack_a, t_list **stack_b);
@@ -62,5 +62,6 @@ void	sort_four(t_list **stack_a, t_list **stack_b);
 void	sort_five(t_list **stack_a, t_list **stack_b);
 void	push_min_to_b(t_list **stack_a, t_list **stack_b, t_list *tmp);
 void	*free_split(char **argv);
+int		strlentable(char **str);
 
 #endif

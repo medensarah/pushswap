@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/10 01:19:58 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/11 20:34:56 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,27 @@ t_list	*init_parsing(int argc, char ***argv, int *argv_malloced)
 		if (!(*argv))
 			return (NULL);
 		*argv_malloced = 1;
+		argc = strlentable(*argv);
 		i = 0;
-		while ((*argv)[i])
-			i++;
-		argc = i;
 	}
-	if (!check_list(*argv))
+	if ((*argv)[1] && !check_list(*argv, i))
 		return (error());
 	stack_a = build_list(argc, *argv, i);
 	if (!stack_a)
 		return (NULL);
 	return (stack_a);
+}
+
+int	strlentable(char **str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+		i++;
+	return (i);
 }
 
 t_list	*build_list(int argc, char **argv, int i)
@@ -50,10 +60,9 @@ t_list	*build_list(int argc, char **argv, int i)
 
 	stack_a = NULL;
 	first = 0;
-	i = 0;
 	while (i < argc)
 	{
-		if (!atoi_range(argv[i], &nbr))
+		if (!atoi_range(argv[i], &nbr, 0))
 			return (NULL);
 		node = create_node(nbr);
 		if (!node)
@@ -70,16 +79,13 @@ t_list	*build_list(int argc, char **argv, int i)
 	return (stack_a);
 }
 
-int	check_list(char **argv)
+int	check_list(char **argv, int i)
 {
-	int	i;
-
-	i = 1;
 	while (argv[i])
 	{
 		if (!check_number(argv[i]))
 			return (0);
-		if (!atoi_range(argv[i], NULL))
+		if (!atoi_range(argv[i], NULL, 1))
 			return (0);
 		if (!check_double(argv))
 			return (0);

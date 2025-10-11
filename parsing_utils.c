@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/04 17:06:08 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/11 19:50:08 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static long long	parse_number(const char *str, int *i, int *sign, int *over)
 	return (result);
 }
 
-int	atoi_range(const char *str, int *nbr)
+int	atoi_range(const char *str, int *nbr, int verif)
 {
 	int			i;
 	int			sign;
@@ -55,7 +55,7 @@ int	atoi_range(const char *str, int *nbr)
 		result = -result;
 	if (result < INT_MIN || result > INT_MAX)
 		return (0);
-	if (nbr)
+	if (!verif)
 		*nbr = (int)result;
 	return (1);
 }
