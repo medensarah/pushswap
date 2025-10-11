@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:53:26 by smedenec          #+#    #+#             */
-/*   Updated: 2025/10/11 20:42:12 by smedenec         ###   ########.fr       */
+/*   Updated: 2025/10/11 20:50:15 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	main(int argc, char **argv)
 		free_split(argv);
 	return (1);
 }
-//./pushswap $(cat numbers.txt) | ~/checker $(cat numbers.txt)
+//./pushswap $(cat numbers.txt) | ~/checker_linux $(cat numbers.txt)
+// les cas "--" "+" "--8 9" ou l'on doit retourner Error\n
 
 void	*free_fail(t_list **stack_a, t_list **stack_b)
 {
